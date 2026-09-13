@@ -26,7 +26,7 @@ class ShotImage extends StatelessWidget {
       return Image.memory(
         bytes!,
         fit: fit,
-        errorBuilder: (_, _, _) => _fallback(scheme),
+        errorBuilder: (context, error, stackTrace) => _fallback(scheme),
       );
     }
 
@@ -34,7 +34,7 @@ class ShotImage extends StatelessWidget {
       return Image(
         image: io.fileImageProvider(path),
         fit: fit,
-        errorBuilder: (_, _, _) => _fallback(scheme),
+        errorBuilder: (context, error, stackTrace) => _fallback(scheme),
       );
     }
 

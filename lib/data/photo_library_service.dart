@@ -47,8 +47,9 @@ class ImportDraft {
 class PhotoLibraryService {
   PhotoLibraryService({
     ImagePicker? picker,
-    this._images,
-  }) : _picker = picker ?? ImagePicker();
+    ShotImageStore? images,
+  })  : _picker = picker ?? ImagePicker(),
+        _images = images;
 
   final ImagePicker _picker;
   ShotImageStore? _images;

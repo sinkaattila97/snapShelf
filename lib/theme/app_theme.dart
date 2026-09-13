@@ -35,8 +35,8 @@ class AppTheme {
       ),
       scaffold: sand,
       inkColor: ink,
-      appBarBg: sand.withValues(alpha: 0.92),
-      navBg: Colors.white.withValues(alpha: 0.94),
+      appBarBg: sand.withOpacity(0.92),
+      navBg: Colors.white.withOpacity(0.94),
       indicator: seaSoft,
       fieldFill: Colors.white,
       chipSelected: seaSoft,
@@ -62,12 +62,12 @@ class AppTheme {
         surfaceContainer: nightMist,
         surfaceContainerHigh: const Color(0xFF243442),
         onSurface: moon,
-        onSurfaceVariant: moon.withValues(alpha: 0.7),
+        onSurfaceVariant: moon.withOpacity(0.7),
       ),
       scaffold: night,
       inkColor: moon,
-      appBarBg: night.withValues(alpha: 0.92),
-      navBg: nightCard.withValues(alpha: 0.96),
+      appBarBg: night.withOpacity(0.92),
+      navBg: nightCard.withOpacity(0.96),
       indicator: const Color(0xFF244850),
       fieldFill: nightCard,
       chipSelected: const Color(0xFF244850),
@@ -129,7 +129,7 @@ class AppTheme {
             fontWeight: selected ? FontWeight.w700 : FontWeight.w500,
             color: selected
                 ? scheme.primary
-                : inkColor.withValues(alpha: 0.55),
+                : inkColor.withOpacity(0.55),
           );
         }),
       ),
@@ -145,11 +145,11 @@ class AppTheme {
         fillColor: fieldFill,
         border: OutlineInputBorder(
           borderRadius: BorderRadius.circular(14),
-          borderSide: BorderSide(color: inkColor.withValues(alpha: 0.12)),
+          borderSide: BorderSide(color: inkColor.withOpacity(0.12)),
         ),
         enabledBorder: OutlineInputBorder(
           borderRadius: BorderRadius.circular(14),
-          borderSide: BorderSide(color: inkColor.withValues(alpha: 0.12)),
+          borderSide: BorderSide(color: inkColor.withOpacity(0.12)),
         ),
         focusedBorder: OutlineInputBorder(
           borderRadius: BorderRadius.circular(14),
@@ -158,7 +158,7 @@ class AppTheme {
       ),
       chipTheme: ChipThemeData(
         shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(999)),
-        side: BorderSide(color: inkColor.withValues(alpha: 0.12)),
+        side: BorderSide(color: inkColor.withOpacity(0.12)),
         selectedColor: chipSelected,
         checkmarkColor: scheme.primary,
         labelStyle: GoogleFonts.dmSans(
@@ -174,10 +174,7 @@ class AppTheme {
         ),
         shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
       ),
-      dialogTheme: DialogThemeData(
-        backgroundColor: dialogBg,
-        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20)),
-      ),
+      // DialogTheme shape differs across Flutter 3.24 vs 3.27+; keep defaults.
       bottomSheetTheme: BottomSheetThemeData(
         backgroundColor: dialogBg,
         shape: const RoundedRectangleBorder(

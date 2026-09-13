@@ -207,7 +207,7 @@ class _ShotPreviewScreenState extends State<ShotPreviewScreen> {
                         _formatWhen(_shot.createdAt),
                       ].join(' · '),
                       style: Theme.of(context).textTheme.bodySmall?.copyWith(
-                            color: AppTheme.ink.withValues(alpha: 0.55),
+                            color: AppTheme.ink.withOpacity(0.55),
                           ),
                     ),
                     if (_shot.needsLabel) ...[

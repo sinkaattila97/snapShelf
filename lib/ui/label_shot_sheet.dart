@@ -183,7 +183,7 @@ class _LabelShotFormState extends State<_LabelShotForm> {
             Text(
               'Label is optional — skip and it stays in Unlabeled until you have time.',
               style: Theme.of(context).textTheme.bodySmall?.copyWith(
-                    color: scheme.onSurface.withValues(alpha: 0.62),
+                    color: scheme.onSurface.withOpacity(0.62),
                   ),
             ),
             const SizedBox(height: 14),
@@ -201,7 +201,7 @@ class _LabelShotFormState extends State<_LabelShotForm> {
                     : Image.memory(
                         widget.draft.bytes,
                         fit: BoxFit.cover,
-                        errorBuilder: (_, _, _) => ColoredBox(
+                        errorBuilder: (context, error, stackTrace) => ColoredBox(
                           color: scheme.surfaceContainer,
                           child: const Center(
                             child: Icon(Icons.broken_image_outlined),

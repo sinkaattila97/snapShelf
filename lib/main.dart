@@ -459,7 +459,7 @@ class InboxView extends StatelessWidget {
               Text(
                 'Label later is fine. Unlabeled stays on top until you name it.',
                 style: Theme.of(context).textTheme.bodyMedium?.copyWith(
-                      color: AppTheme.ink.withValues(alpha: 0.62),
+                      color: AppTheme.ink.withOpacity(0.62),
                     ),
               ),
               const SizedBox(height: 14),
@@ -494,13 +494,13 @@ class InboxView extends StatelessWidget {
                   : ListView.separated(
                       padding: const EdgeInsets.fromLTRB(20, 4, 20, 100),
                       itemCount: shots.length + 1,
-                      separatorBuilder: (_, _) => const SizedBox(height: 10),
+                      separatorBuilder: (context, index) => const SizedBox(height: 10),
                       itemBuilder: (context, index) {
                         if (index == 0) {
                           return Text(
                             '${shots.length} shot${shots.length == 1 ? '' : 's'}',
                             style: Theme.of(context).textTheme.labelLarge?.copyWith(
-                                  color: AppTheme.ink.withValues(alpha: 0.5),
+                                  color: AppTheme.ink.withOpacity(0.5),
                                 ),
                           );
                         }
@@ -530,9 +530,9 @@ class _EmptyPanel extends StatelessWidget {
     return Container(
       padding: const EdgeInsets.all(20),
       decoration: BoxDecoration(
-        color: Colors.white.withValues(alpha: 0.78),
+        color: Colors.white.withOpacity(0.78),
         borderRadius: BorderRadius.circular(22),
-        border: Border.all(color: AppTheme.ink.withValues(alpha: 0.06)),
+        border: Border.all(color: AppTheme.ink.withOpacity(0.06)),
       ),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
@@ -544,7 +544,7 @@ class _EmptyPanel extends StatelessWidget {
           Text(
             body,
             style: Theme.of(context).textTheme.bodyMedium?.copyWith(
-                  color: AppTheme.ink.withValues(alpha: 0.65),
+                  color: AppTheme.ink.withOpacity(0.65),
                   height: 1.45,
                 ),
           ),
@@ -584,7 +584,7 @@ class ShelvesView extends StatelessWidget {
         final shelf = shelves[index];
         final count = _countFor(shelf);
         return Material(
-          color: Colors.white.withValues(alpha: 0.82),
+          color: Colors.white.withOpacity(0.82),
           borderRadius: BorderRadius.circular(22),
           child: InkWell(
             borderRadius: BorderRadius.circular(22),
@@ -613,7 +613,7 @@ class ShelvesView extends StatelessWidget {
                   Text(
                     '$count shot${count == 1 ? '' : 's'}',
                     style: Theme.of(context).textTheme.bodySmall?.copyWith(
-                          color: AppTheme.ink.withValues(alpha: 0.55),
+                          color: AppTheme.ink.withOpacity(0.55),
                         ),
                   ),
                 ],
@@ -766,7 +766,7 @@ class _ShelfDetailScreenState extends State<ShelfDetailScreen> {
                     : ListView.separated(
                         padding: const EdgeInsets.fromLTRB(20, 8, 20, 24),
                         itemCount: _shots.length,
-                        separatorBuilder: (_, _) => const SizedBox(height: 10),
+                        separatorBuilder: (context, index) => const SizedBox(height: 10),
                         itemBuilder: (context, index) {
                           final shot = _shots[index];
                           return ShotTile(
@@ -799,7 +799,7 @@ class ShotTile extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Material(
-      color: Colors.white.withValues(alpha: 0.88),
+      color: Colors.white.withOpacity(0.88),
       borderRadius: BorderRadius.circular(18),
       child: InkWell(
         borderRadius: BorderRadius.circular(18),
@@ -821,7 +821,7 @@ class ShotTile extends StatelessWidget {
                                 ? FontStyle.italic
                                 : FontStyle.normal,
                             color: shot.needsLabel
-                                ? AppTheme.ink.withValues(alpha: 0.55)
+                                ? AppTheme.ink.withOpacity(0.55)
                                 : null,
                           ),
                       maxLines: 1,
@@ -836,7 +836,7 @@ class ShotTile extends StatelessWidget {
                       maxLines: 2,
                       overflow: TextOverflow.ellipsis,
                       style: Theme.of(context).textTheme.bodySmall?.copyWith(
-                            color: AppTheme.ink.withValues(alpha: 0.55),
+                            color: AppTheme.ink.withOpacity(0.55),
                           ),
                     ),
                   ],
